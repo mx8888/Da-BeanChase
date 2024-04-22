@@ -114,6 +114,39 @@ section{
 .btn:hover {
     background-color: #1D1E1C;
 }
+.home {
+    position: relative;
+}
+
+.home-image {
+    position: relative;
+    width: 1571px;
+    height: 679px;
+}
+
+.home-image img {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1571px;
+    height: 679px;
+    object-fit: cover;
+    border-radius: 20px; 
+    filter: brightness(70%);
+}
+
+.home-text {
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    color: #E7E7D6;
+    padding: 20px;
+    max-width: 80%;;
+}
+
 section {
     padding: 80px 0;
     text-align: center; 
@@ -166,7 +199,7 @@ h2 {
 }
 .stars a{
     font-size: 16px;
-    color: var( -- other-color);
+    color: var( --other-color);
     margin-right: 5px;
 }
 .row-in{
@@ -176,13 +209,13 @@ h2 {
     margin-top: 5px;
 }
 .row-left a{
-    font-size: var( -- p-font);
+    font-size: var( --p-font);
     font-weight: 500;
-    color: var( -- second-color);
+    color: var( --second-color);
     transition: all .6s;
 }
 .row-left a:hover{
-    color: var( -- text-color);
+    color: var(--text-color);
 }
 .row-right h6{
     font-size: 19px;

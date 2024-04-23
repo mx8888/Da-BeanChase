@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum scal=1.0, user-scalable=n">
     <title>Da BeanChase</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 
@@ -15,7 +15,7 @@
 </head>
 <body>
     <header> 
-        <a href="index.html"><img src="dbc-bnc.png" class="logo"></a>
+        <a href="index.html"><img src="images/dbc-bnc.png" class="logo"></a>
         <ul class="navlist">
             <li><a href="products.html">Products</a></li>
             <li><a href="about.html">About Us</a></li>
@@ -35,12 +35,16 @@
 
     <!--home-->
     <section class="home">
-        <div class="home-text"> 
-        <h1> Building bonds, Bean by <span class="blue-bean">Bean</span> </h1>
-        <p>At Da BeanChase, we believe in more than just serving great coffee; we're dedicated to nurturing connections, supporting local communities, and promoting sustainability. With each cup, we strive to build bonds, one bean at a time.</p>
-        <a href="shop.html" class="btn">Shop Now</a>
-        <div>
+        <div class="home-image" data-aos="fade-up">
+            <img src="images/homebg.jpg" alt="Background Image">
+            <div class="home-text">
+                <h1>Building bonds, Bean by <span class="blue-bean">Bean</span></h1>
+                <p>At Da BeanChase, we believe in more than just serving great coffee; we're dedicated to nurturing connections, supporting local communities, and promoting sustainability. With each cup, we strive to build bonds, one bean at a time.</p>
+                <a href="shop.html" class="btn">Shop Now</a>
+            </div>
+        </div>
     </section>
+    
 
     <!--beans-->
     <section class="n-beans">
@@ -50,7 +54,7 @@
         <div class="n-content">
             <div class="row">
                 <div class="row-img">
-                    <img src="mrarabica.png">
+                    <img src="images/mrarabica.png">
                 </div>
                 <h3>Medium Roast Arabica</h3>
                 <div class="stars">
@@ -73,7 +77,29 @@
             
             <div class="row">
                 <div class="row-img">
-                    <img src="mrarabica.png">
+                    <img src="images/lrarabica.png">
+                </div>
+                <h3>Light Roast Arabica</h3>
+                <div class="stars">
+                    <a href="#"><i class='bx bxs-star'></i></a>
+                    <a href="#"><i class='bx bxs-star'></i></a>
+                    <a href="#"><i class='bx bxs-star'></i></a>
+                    <a href="#"><i class='bx bxs-star'></i></a>
+                    <a href="#"><i class='bx bxs-star'></i></a>
+                    <a href="#">5/5</a>
+                </div>
+                <div class="row-in">
+                    <div class="row-left">
+                        <a href="#">Add to Cart <i class='bx bx-plus'></i></a>
+                    </div>
+                    <div class="row-right">
+                        <h6>₱300</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="row-img">
+                    <img src="images/_mrrobusta.png">
                 </div>
                 <h3>Medium Roast Arabica</h3>
                 <div class="stars">
@@ -95,31 +121,9 @@
             </div>
             <div class="row">
                 <div class="row-img">
-                    <img src="mrarabica.png">
+                    <img src="images/drrobusta.png">
                 </div>
-                <h3>Medium Roast Arabica</h3>
-                <div class="stars">
-                    <a href="#"><i class='bx bxs-star'></i></a>
-                    <a href="#"><i class='bx bxs-star'></i></a>
-                    <a href="#"><i class='bx bxs-star'></i></a>
-                    <a href="#"><i class='bx bxs-star'></i></a>
-                    <a href="#"><i class='bx bxs-star'></i></a>
-                    <a href="#">5/5</a>
-                </div>
-                <div class="row-in">
-                    <div class="row-left">
-                        <a href="#">Add to Cart <i class='bx bx-plus'></i></a>
-                    </div>
-                    <div class="row-right">
-                        <h6>₱300</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="row-img">
-                    <img src="mrarabica.png">
-                </div>
-                <h3>Medium Roast Arabica</h3>
+                <h3>Dark Roast Arabica</h3>
                 <div class="stars">
                     <a href="#"><i class='bx bxs-star'></i></a>
                     <a href="#"><i class='bx bxs-star'></i></a>
@@ -145,15 +149,97 @@
         </div>
     </section>
 
+    <!-- blog-->
     <section class = "Blog">
-        <div class = "blog-content">
-            <div class= "box"> 
-                <div class="f-icon"> </div>
+        <div class = "blog-heading">
+            <h2> Blog </h2>
+
+            <div class="blog-container"> 
+
+                <div class ="blog-box"> 
+
+                    <div class="blog-img">
+                        <img src="images/kof.jpg" alt="Blog">
+                    </div>
+
+                    <div class="blog-text">
+                        <span>20 April 2024 / Lorem Ipsum</span>
+                        <a href="#" class= "blog-title">Lisan Al Gaib!</a>
+                        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, labore odio? Repellendus officiis tenetur dicta sunt, molestias harum est consectetur, minima nam eveniet explicabo voluptatibus, earum temporibus in natus commodi!</p>
+                        <a href="#">Read More</a> 
+                    </div>
+                </div>
+
+                <div class ="blog-box"> 
+
+                    <div class="blog-img">
+                        <img src="images/ice kof.jpg" alt="Blog">
+                    </div>
+
+                    <div class="blog-text">
+                        <span>20 April 2024 / Lorem Ipsum</span>
+                        <a href="#" class= "blog-title">Lisan Al Gaib!</a>
+                        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, labore odio? Repellendus officiis tenetur dicta sunt, molestias harum est consectetur, minima nam eveniet explicabo voluptatibus, earum temporibus in natus commodi!</p>
+                        <a href="#">Read More</a> 
+                    </div>
+                </div>
+
+                <div class ="blog-box"> 
+
+                    <div class="blog-img">
+                        <img src="images/bean farmer.jpg" alt="Blog">
+                    </div>
+
+                    <div class="blog-text">
+                        <span>20 April 2024 / Lorem Ipsum</span>
+                        <a href="#" class= "blog-title">Lisan Al Gaib!</a>
+                        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, labore odio? Repellendus officiis tenetur dicta sunt, molestias harum est consectetur, minima nam eveniet explicabo voluptatibus, earum temporibus in natus commodi!</p>
+                        <a href="#">Read More</a> 
+                    </div>
+                </div>
+                
             </div>
-            </div>
+               
         </div>
     </section>
+<!--footer-->
+    <section class="footer">
+        <div class ="footer-box">
+            <h2>Da BeanChase-brews and concepts</h2>
+            <p> Da BeanChase@gmail.com 
+                <br> Phone: +63 901 234 5678
+            </p>
+        </div> 
+        <div class ="footer-box">
+            <h3>Menu</h3>
+            <a href="#">About Us</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Delivery Timeline</a>
+            <a href="#">Community</a>
+        </div> 
+        <div class ="footer-box">
+            <h3>Resources</h3>
+            <a href="#">Support</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+        </div> 
+        <div class ="footer-box">
+            <h3>Socials</h3>
+            <div class = "social">
+                <a href="#"><i class="ri-facebook-box-fill"></i></a>
+                <a href="#"><i class="ri-instagram-line"></i></a>
+            </div>
 
+        </div> 
+    </section>
+
+    <!--copyright-->
+    <div class="copyright"?>
+        <div class="end-text">
+            <p> CopyRight 2024 by Da BeanChase-brews and concepts</p>
+        </div>
+    </div>
     <script src="js/script.js"></script>
+
 </body>
 </html>

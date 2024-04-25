@@ -12,3 +12,31 @@ window.onscroll = () => {
     navlist.classList.remove('open');
     
 }
+document.querySelector('.google-btn').addEventListener('click', function(event) {
+    event.preventDefault();
+
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const slider = document.querySelector('.slider');
+
+    function autoScroll() {
+        const slideWidth = slider.scrollWidth / slider.children.length;
+        slider.scrollLeft += slideWidth;
+
+        if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
+            slider.scrollLeft = 0;
+        }
+    }
+
+    setInterval(autoScroll, 3000);
+
+    // Optional: Pause auto-scroll on hover
+    slider.addEventListener("mouseenter", function() {
+        clearInterval(autoScrollInterval);
+    });
+
+    slider.addEventListener("mouseleave", function() {
+        autoScrollInterval = setInterval(autoScroll, 3000);
+    });
+});

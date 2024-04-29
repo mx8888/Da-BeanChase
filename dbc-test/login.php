@@ -96,15 +96,13 @@ if (isset($_POST['loginUser'])) {
         </div> 
         <div class ="footer-box">
             <h3>Menu</h3>
-            <a href="#">About Us</a>
-            <a href="#">Contact Us</a>
+            <a href="about.php">About Us</a>
+            <a href="contact.html">Contact Us</a>
             <a href="delivery.php">Delivery Timeline</a>
-            <a href="#">Community</a>
         </div> 
         <div class ="footer-box">
             <h3>FAQ</h3>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms & Conditions</a>
+            <a href="privacy.html">Privacy Policy</a>
         </div> 
         <div class ="footer-box">
             <h3>Socials</h3>
@@ -122,5 +120,7 @@ if (isset($_POST['loginUser'])) {
             <p> © 2024, Da BeanChase-brews and concepts</p>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script type ="text/javascript" src="js/script.js"></script>
 
+</body>
+</html>

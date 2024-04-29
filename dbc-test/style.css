@@ -315,8 +315,11 @@ ul {
 #about {
     padding: 80px 0;
     background-color: var(--bg-color);
+    text-align: center;
 }
-
+.center-text {
+    margin-bottom: 40px;
+}
 .about-container {
     display: flex;
     justify-content: space-between;
@@ -326,20 +329,18 @@ ul {
 }
 
 .about-box {
-    
-    width: calc(33.33% - 40px);
-    margin-bottom: 40px;
-    background-color: var(--bg-color);
+    flex-basis: calc(33.33% - 40px);
+    background-color: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    justify-content: space-between;
+    margin-bottom: 40px;
 }
 
 .about-box h2 {
     font-size: 2rem;
     margin-bottom: 10px;
-    color: var(--other-color);
+    color: var(--main-color);
     text-align: center;
     font-weight: 500;
 }
@@ -354,20 +355,36 @@ ul {
     font-size: 40px; 
     
 }
-.about-box{
-    width: 350px;
-    margin: 20px;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-}
-.about-container {
+  
+.about-box i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    display: block;
+    color: var(--other-color);
+  }
+  
+  .dbclogo {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin: 20px;
+    height: 100%; 
+  }
+
+.dbclogo img {
+    max-width: 100%; 
+    padding: 10%;
 }
+  @media screen and (max-width: 980px) {
+    .about-box {
+      flex-basis: calc(50% - 40px);
+    }
+  }
+  
+  @media screen and (max-width: 680px) {
+    .about-box {
+      flex-basis: 100%;
+    }
+  }
 #blog {
     display: flex;
     justify-content: center;
@@ -376,7 +393,7 @@ ul {
     padding: 40px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.5);
 }
-.about-section {
+.about-section, .privacy-section {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -390,13 +407,13 @@ ul {
     text-align: center;
 }
 
-.about-content {
+.about-content, .privacy-content {
     max-width: 800px; 
     margin-bottom: 40px;
     text-align: justify;
 }
 
-.about-content h2 {
+.about-content h2, .privacy-content h2 {
     color: var(--main-color);
     margin-bottom: 40px;
     font-size: 48px;
@@ -404,9 +421,10 @@ ul {
     font-weight: 500;
     line-height: 57.60px;
     word-wrap: break-word;
+    text-align: center;
 }
 
-.about-content p {
+.about-content p, .privacy-content p {
     color: var(--text-color);
     font-size: 16px;
     font-family: Poppins;
@@ -671,7 +689,7 @@ ul {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-color: #DB4437; /* Google Red */
+    background-color: #DB4437; /* Google */
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
@@ -684,7 +702,7 @@ ul {
 }
 
 .google-login a:hover {
-    background-color: #C0392B; /* Darker shade of Google Red */
+    background-color: #C0392B; 
 }
 
 
@@ -692,11 +710,11 @@ ul {
  @media (max-width: 768px) {
     .delivery-container {
       width: 90%;
-      margin-top: 50px; /* Adjusted top margin for responsiveness */
+      margin-top: 50px; 
     }
   
     .delivery-text {
-      padding: 0 20px; /* Adjusted padding for responsiveness */
+      padding: 0 20px; 
     }
   }
 
@@ -764,19 +782,19 @@ ul {
   
 
 @media (max-width: 1250px) {
-    .blog.box {
+    .blog-box {
         width: 300px;
     }
 }
 
 @media (max-width: 1100px) {
-    .blog.box {
+    .blog-box {
         width: 70%;
     }
 }
 
 @media (max-width: 550px) {
-    .blog.box {
+    .blog-box {
         margin: 20px 10px;
         width: 100%;
     }
@@ -785,34 +803,39 @@ ul {
     }
 }
 
+
 @media (max-width: 1050px) {
     #menu-icon {
         display: block;
     }
     .navlist {
         position: absolute;
-        width: 100%;
-        height: 100vh;
-        padding: 40px 60px;
-        top: 0;
-        bottom: 0;
-        Left: 100%;
-        right: 0;
+        top: 100%;
+        right: -100%;
+        width: 270px;
+        height: 32vh;
+        background: var( --bg-color);
         display: flex;
         flex-direction: column;
-        background: var(--bg-color);
-        transition: all .40s ease;
+        justify-content: flex-start;
+        border-radius: 8px;
+        transition: all .50s ease;
     }
     .navlist a {
         display: block;
-        color: #979797;
-        padding: 0;
-        margin: 0px 0px 30px 0px;
-        font-size: 1rem;
-        font-weight: 400;
+        margin: 12px 0;
+        padding: 0px 25px;
+        transition: all .50s ease;
+    }
+    .navlist a:hover{
+        color: var(--other-color);
+    }
+    .navlist a:active {
+        color: var(--text-color);
+        transform: translateY(2px);
     }
     .navlist.open {
-        left: 0;
+        right: 2%;
     }
     :root {
         --h1-font: 4.5rem;

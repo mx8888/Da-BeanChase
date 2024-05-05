@@ -8,6 +8,7 @@
     font-family: "Poppins", sans-serif;
 }
 
+
 :root {
     --bg-color: #eee;
     --text-color: #1D1E1C;
@@ -96,11 +97,18 @@ header {
 section {
     padding: 90px 14% 70px;
 }
-.slider-wraper{
-    position: relative;
-    max-width: 100%;
-    margin: 0 auto;
+.slider-wrapper {
+    width: 95% !important; 
+    max-width: none !important; 
+    margin: 0 auto !important; 
 }
+
+.cont {
+    width: 95% !important; 
+    max-width: none !important; 
+    margin: 0 auto !important; 
+}
+
 .slider{
     display:flex;
     aspect-ratio: 16/9;
@@ -141,6 +149,10 @@ section {
     padding: 80px 20px; 
     text-align: center;
 }
+.home-image img {
+    max-width: 100%; 
+    height: auto; 
+}
 
 
 .home-text {
@@ -152,6 +164,9 @@ section {
     width: 80%; 
     padding: 20px; 
     text-align: justify;
+    max-width: 70%; 
+    margin: 0 auto; 
+    
 }
 
 .home-text h1 {
@@ -166,19 +181,18 @@ section {
     margin-bottom: 30px;
     color: var(--third-color);
 }
-
 .btn {
-    display: inline-block;
-    background-color: #2254E8;
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    display: inline-block !important;
+    background-color: #2254E8 !important;
+    color: #fff !important;
+    padding: 10px 20px !important;
+    text-decoration: none !important;
+    border-radius: 5px !important;
+    transition: background-color 0.3s ease !important;
 }
 
 .btn:hover {
-    background-color: #1D1E1C;
+    background-color: #1D1E1C !important;
 }
 
 @media screen and (max-width: 768px) {
@@ -521,66 +535,58 @@ ul {
 .blog-text a:hover {
     color: var(--other-color);
 }
-.footer{
-    display: grid;
-    grid-template-columns:repeat(auto-fit, minmax(20px, auto));
-    gap:2rem;
-    background-color: #1D1E1C;
-}
-
-.footer-box{
-    display: flex;
-    flex-direction: column;
-}
-.footer h2{
-    font-size:30px;
-    font-weight: 500;
-    margin-bottom: 15px;
-    color: var(--bg-color);
-    font-family: 'Europa Grotesk SH';
-}
-.footer p{
-    color: var(--second-color);
-    transition:all .50s ease;
-    margin-bottom: 0.8rem;
-    color: var(--bg-color);
-}
-.footer-box h3{
-    font-size:20px;
-    font-weight: 500;
-    margin-bottom: 15px;
-    color: var(--bg-color);
-    font-family: 'Europa Grotesk SH';
-}
-.footer-box a{
-    color: var(--second-color);
-    transition:all .50s ease;
-    margin-bottom: 0.8rem;
-    color: var(--bg-color);
-}
-.footer-box a:hover{
-    transform: translateX(-3px);
-    color: var(--other-color);
-}
-.social a{
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 40px;
-    width: 40px;
-    background: var( --other-color);
-    color: var( --bg-color);
-    font-size: 17px;
-    border-radius: 8px;
-    margin-right: 14px;
-    transform: transform 0.6s;
-}
-.copyright{
+.footer {
+    background-color: #111;
+    color: #fff;
+    padding: 50px 0;
     display: flex;
     flex-wrap: wrap;
-    background-color: #1D1E1C;
-    font-size: 10px;
+    justify-content: space-around;
 }
+
+.footer-box {
+    width: 45%;
+    padding: 0 20px;
+    margin-bottom: 30px; 
+    text-align: center; 
+}
+.footer-box h2,
+.footer-box h3 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.footer-box h3 {
+    border-bottom: 2px solid #fff;
+    padding-bottom: 10px;
+}
+
+.footer-box p,
+.footer-box a {
+    color: #ccc;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.footer-box a:hover {
+    color: #fff;
+}
+
+.social a:hover {
+    color: #fff;
+}
+
+.copyright {
+    background-color: #222;
+    color: #ccc;
+    padding: 10px 0;
+    text-align: center;
+}
+
+
+
+
 .copyright p{
     color: #eee;
 }
@@ -634,7 +640,7 @@ ul {
     margin-left: 20px;
 }
 
-.login-container {
+.login-container,.adminlog-container {
     max-width: 500px;
     margin: 100px auto;
     padding: 40px;
@@ -642,25 +648,26 @@ ul {
     background-color: #fff;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
-.login-container h2 {
+.login-container h2, .adminlog-container h2 {
     text-align: center;
     margin-bottom: 30px;
     color: var(--main-color);
 }
-.login-container h3{
+.login-container h3, .adminlog-container h3{
     font-family: 'Europa Grotesk SH';
     font-weight: 200;
 }
-.login-container form {
+.login-container form, .adminlog-container form {
     display: flex;
     flex-direction: column;
 }
 
-.login-container label {
+.login-container label, .adminlog-container label {
     margin-bottom: 15px;
     color: var(--main-color);
 }
-
+.adminlog-container input[type="text"],
+.adminlog-container input[type="password"],
 .login-container input[type="text"],
 .login-container input[type="password"] {
     padding: 15px;
@@ -668,7 +675,7 @@ ul {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
-
+.adminlog-container[type="submit"],
 .login-container input[type="submit"] {
     padding: 15px;
     background-color: var(--main-color);
@@ -681,7 +688,6 @@ ul {
     font-weight: 200;
     font-size: 20px;
 }
-
 .login-container input[type="submit"]:hover {
     background-color: #0056b3;
 }
@@ -698,7 +704,7 @@ ul {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-color: #DB4437; /* Google */
+    background-color: #DB4437; 
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
@@ -713,7 +719,21 @@ ul {
 .google-login a:hover {
     background-color: #C0392B; 
 }
+.adminlog-container button {
+    padding: 15px 20px;
+    background-color: #2254E8;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Europa Grotesk SH', sans-serif;
+    font-size: 16px;
+}
 
+.adminlog-container button:hover {
+    background-color: #1a3dab; 
+}
 
 
  @media (max-width: 768px) {
@@ -881,4 +901,21 @@ ul {
 .menu img {
     max-width: 60%; 
     padding: 10%;
+}
+.row h1{
+    font-family: 'Europa Grotesk SH';
+}
+.btn-remove {
+    background-color: white;
+    color:#DB4437;
+    border: 1px solid #DB4437;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-remove:hover {
+    background-color: darkred;
+    border-color: darkred;
+    color:#eee
 }

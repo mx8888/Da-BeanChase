@@ -1,5 +1,11 @@
 <?php 
 session_start();
+// Check if user is logged in
+if (!isset($_SESSION["loggedin"])) {
+    // User is not logged in, redirect to login page
+    header("Location: login.php");
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,7 +53,9 @@ session_start();
         <div class="nav-right"> 
             <a href="#"><i class='bx bx-search'></i></a>
             <a href="mycart.php"><i class='bx bx-cart-alt'></i></a>
-            <a href="login.php"><i class='bx bx-user'></i></a>
+            <?php if(isset($_SESSION['loggedin'])) { ?>
+                <a href="profile.php"><i class='bx bx-user'></i></a>
+            <?php } ?>
             <div class="bx bx-menu" id="menu-icon"></div>
         </div>
     </header>

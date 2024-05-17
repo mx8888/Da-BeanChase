@@ -542,14 +542,16 @@ ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    align-items: flex-start;  
 }
 
 .footer-box {
-    width: 45%;
+    width: 22%;  
     padding: 0 20px;
-    margin-bottom: 30px; 
-    text-align: center; 
+    margin-bottom: 30px;
+    text-align: center;
 }
+
 .footer-box h2,
 .footer-box h3 {
     color: #fff;
@@ -666,6 +668,7 @@ ul {
     margin-bottom: 15px;
     color: var(--main-color);
 }
+
 .adminlog-container input[type="text"],
 .adminlog-container input[type="password"],
 .login-container input[type="text"],
@@ -675,6 +678,7 @@ ul {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
 .adminlog-container[type="submit"],
 .login-container input[type="submit"] {
     padding: 15px;
@@ -688,6 +692,7 @@ ul {
     font-weight: 200;
     font-size: 20px;
 }
+
 .login-container input[type="submit"]:hover {
     background-color: #0056b3;
 }
@@ -919,3 +924,134 @@ ul {
     border-color: darkred;
     color:#eee
 }
+.reg-container {
+    max-width: 800px;
+    margin: 100px auto;
+    padding: 40px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.reg-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--main-color);
+}
+
+.reg-container h3 {
+    font-family: 'Europa Grotesk SH';
+    font-weight: 200;
+}
+
+.reg-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.reg-container label {
+    margin-bottom: 15px;
+    color: var(--main-color);
+}
+
+.reg-container input[type="text"],
+.reg-container input[type="email"],
+.reg-container input[type="password"] {
+    padding: 15px;
+    margin-bottom: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: calc(100% - 10px); /* Adjusted width */
+    max-width: 400px; /* Adjusted maximum width */
+}
+
+.reg-container input[type="submit"] {
+    padding: 15px;
+    background-color: var(--main-color);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: 'Europa Grotesk SH';
+    font-weight: 200;
+    font-size: 16px;
+}
+
+.reg-container input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+@media only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
+    header {
+        padding: 1rem 0.5rem;
+      }
+      
+      .home-text {
+        font-size: 1.2rem;
+      }
+      
+      .row-img img {
+        width: 100%;
+        height: auto;
+      }
+      
+      .row h3 {
+        font-size: 1.2rem;
+      }
+      
+      .row-right h6 {
+        font-size: 1.2rem;
+      }
+      
+      .blog-title {
+        font-size: 1.2rem;
+      }
+      
+      .footer-box {
+        font-size: 0.8rem;
+      }
+      
+      .copyright p {
+        font-size: 0.8rem;
+      }
+  }
+  @media only screen and (max-width: 768px) {
+    header {
+      padding: 1rem 0;
+    }
+  
+    .logo {
+      width: 50%;
+    }
+  
+    .navlist {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 0;
+      overflow: hidden;
+      transition: height 0.3s ease-in-out;
+    }
+  
+    .navlist.open {
+      height: 100%;
+    }
+  
+    .navlist a {
+      padding: 1rem;
+      border-bottom: 1px solid #ccc;
+    }
+  
+    .nav-right {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 1rem;
+    }
+  
+    #menu-icon {
+      display: block;
+      cursor: pointer;
+    }
+  }

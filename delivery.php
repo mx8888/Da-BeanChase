@@ -4,50 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delivery Timeline</title>
-
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="style.css"> 
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
-        a {
-            text-decoration: none;
-        }
-        .products-container{
-            margin-top: 100px;
-        }
+    a {
+        text-decoration: none;
+    }
+    .products-container{
+        margin-top: 100px;
+    }
     </style>
 </head>
 <body>
-
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
-    <link rel="stylesheet" href="style.css"> 
-</head>
-<body>
-    <header> 
+<header> 
         <a href="dbctest.html"><img src="images/dbc-bnc.png" class="logo"></a>
         <ul class="navlist">
             <li><a href="products.php">Products</a></li>
             <li><a href="about.php">About Us</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="blog.php">Blog</a></li>
-            <li><a href="Menu.php">Cafe Menu</a></li>
+            <li><a href="menu.html">Cafe Menu</a></li>
         </ul>
 
-        <div class = "nav-right"> 
-            <a href ="#"><i class='bx bx-search'></i></a>
-            <a href ="mycart.php"><i class='bx bx-cart-alt' ></i></a>
-            <a href ="login.php"><i class='bx bx-user' ></i></a>
+        <div class="nav-right"> 
+            <a href="#"><i class='bx bx-search'></i></a>
+            <a href="mycart.php"><i class='bx bx-cart-alt'></i></a>
+            <?php if(isset($_SESSION['loggedin'])) { ?>
+                <a href="logout.php"><i class='bx bx-log-out'></i></a>
+            <?php } ?>
             <div class="bx bx-menu" id="menu-icon"></div>
-        </div>
         </div>
     </header>
 
@@ -121,9 +108,7 @@
         </div>
     </div>
 
-
     <script type ="text/javascript" src="js/script.js"></script>
-
 </body>
 </html>
 

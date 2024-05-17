@@ -12,29 +12,27 @@
     a {
         text-decoration: none;
     }
-    .products-container{
-        margin-top: 100px;
-    }
     </style>
 </head>
 <body>
-    <header> 
-            <a href="dbctest.html"><img src="images/dbc-bnc.png" class="logo"></a>
-            <ul class="navlist">
-                <li><a href="products.php">Products</a></li>
-                <li><a href="about.php">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="blog.php">Blog</a></li>
-                <li><a href="menu.html">Cafe Menu</a></li>
-            </ul>
+<header> 
+        <a href="dbctest.html"><img src="images/dbc-bnc.png" class="logo"></a>
+        <ul class="navlist">
+            <li><a href="products.php">Products</a></li>
+            <li><a href="about.php">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="blog.php">Blog</a></li>
+            <li><a href="menu.html">Cafe Menu</a></li>
+        </ul>
 
-            <div class = "nav-right"> 
-                <a href ="#"><i class='bx bx-search'></i></a>
-                <a href ="mycart.php"><i class='bx bx-cart-alt' ></i></a>
-                <a href ="login.php"><i class='bx bx-user' ></i></a>
-                <div class="bx bx-menu" id="menu-icon"></div>
-            </div>
-            </div>
+        <div class="nav-right"> 
+            <a href="#"><i class='bx bx-search'></i></a>
+            <a href="mycart.php"><i class='bx bx-cart-alt'></i></a>
+            <?php if(isset($_SESSION['loggedin'])) { ?>
+                <a href="logout.php"><i class='bx bx-log-out'></i></a>
+            <?php } ?>
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
     </header>
 
     <section class="about-section">

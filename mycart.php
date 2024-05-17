@@ -1,22 +1,41 @@
-<?php session_start(); ?>
+<?php 
+session_start(); 
+if (!isset($_SESSION['loggedin'])) {
+    header("Location: login.php");
+    exit;
+}
+
+// Include your database connection file
+include "config.php";
+
+// Fetch user details from the database
+$user_id = $_SESSION['ID'];
+$sql = "SELECT * FROM users WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->execute([$user_id]);
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Cart</title>
-    <link rel="stylesheet" href="style.css"> 
+    <title>Products</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
- 
     <style>
-        .cart-container {
+        a {
+            text-decoration: none;
+        }
+        .products-container{
             margin-top: 100px;
         }
-        a {
-        text-decoration: none;
+        .cart-container {
+            margin-top: 100px;
         }
     </style>
 </head>
@@ -31,10 +50,13 @@
             <li><a href="blog.php">Blog</a></li>
             <li><a href="menu.html">Cafe Menu</a></li>
         </ul>
+
         <div class="nav-right"> 
             <a href="#"><i class='bx bx-search'></i></a>
             <a href="mycart.php"><i class='bx bx-cart-alt'></i></a>
-            <a href="login.php"><i class='bx bx-user'></i></a>
+            <?php if(isset($_SESSION['loggedin'])) { ?>
+                <a href="profile.php"><i class='bx bx-user'></i></a>
+            <?php } ?>
             <div class="bx bx-menu" id="menu-icon"></div>
         </div>
     </header>
@@ -130,8 +152,9 @@
         </div>
     </div>
 
- <!--footer-->
- <footer class="footer">
+    </div>
+    <!--footer-->
+    <footer class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-md-3 footer-box">
@@ -166,28 +189,34 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="js/script.js"> </script>
     <script>
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            var iprices = document.querySelectorAll('.iprice');
+            var iquantities = document.querySelectorAll('.iquantity');
+            var itotals = document.querySelectorAll('.itotal');
 
-        var gt=0;
-        var iprice=document.getElementsByClassName('iprice');
-        var iquantity=document.getElementsByClassName('iquantity');
-        var itotal=document.getElementsByClassName('itotal');
-        var gtotal=document.getElementById('gtotal');
-
-        function subTotal()
-        {
-            gt=0;
-            for(i=0; i < iprice.length; i++)
-            {
-                itotal[i].innerText=(iprice[i].value)*(iquantity[i].value);
-
-                gt=gt+(iprice[i].value)*(iquantity[i].value);
+            function computeTotal() {
+                var grandTotal = 0;
+                iprices.forEach(function(element, index) {
+                    var iprice = parseFloat(element.value);
+                    var iquantity = parseInt(iquantities[index].value);
+                    var total = iprice * iquantity;
+                    itotals[index].textContent = total.toFixed(2);
+                    grandTotal += total;
+                });
+                document.getElementById('gtotal').textContent = grandTotal.toFixed(2);
             }
-            gtotal.innerText=gt;
-        }
 
-        subTotal();
+            computeTotal();
+
+            iquantities.forEach(function(element) {
+                element.addEventListener('change', function() {
+                    computeTotal();
+                });
+            });
+        });
     </script>
+    <script type ="text/javascript" src="js/script.js"></script>
 </body>
 </html>

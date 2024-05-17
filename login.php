@@ -3,20 +3,20 @@ include "config.php";
 session_start();
 
 if (isset($_POST['loginUser'])) {
-    $username = $_POST["username"];
+    $email = $_POST["email"];
     $password = $_POST["password"];
 
-    $sql = "SELECT * FROM users WHERE username = ?";
+    $sql = "SELECT * FROM users WHERE email = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->execute([$username]);
+    $stmt->execute([$email]);
 
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($result) {
-        if ($password === $result["password"]) {
+        if (password_verify($password, $result["password"])) { // Compare hashed password
             $_SESSION["loggedin"] = true;
             $_SESSION["ID"] = $result["ID"];
-            $_SESSION["username"] = $result["username"];
+            $_SESSION["email"] = $result["email"];
             $_SESSION["acct_type"] = $result["acct_type"];
 
             if (strtoupper($_SESSION["acct_type"]) == "ADMIN") {
@@ -24,15 +24,14 @@ if (isset($_POST['loginUser'])) {
             } else {
                 header("location: dbctest.html");
             }
-            
-            
-       } else {
-            $error="Invalid password.";
-       }
- } else {
-     $error="No account found with that username.";
+        } else {
+            $error = "Invalid password.";
+        }
+    } else {
+        $error = "No account found with that email.";
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -49,9 +48,7 @@ if (isset($_POST['loginUser'])) {
         a {
             text-decoration: none;
         }
-        .products-container{
-            margin-top: 100px;
-        }
+        
     </style>
 </head>
 <body>
@@ -61,14 +58,17 @@ if (isset($_POST['loginUser'])) {
             <li><a href="products.php">Products</a></li>
             <li><a href="about.php">About Us</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="Menu.html">Cafe Menu</a></li>
+            <li><a href="blog.php">Blog</a></li>
+            <li><a href="menu.html">Cafe Menu</a></li>
         </ul>
 
-        <div class = "nav-right"> 
-            <a href ="#"><i class='bx bx-search'></i></a>
-            <a href ="mycart.php"><i class='bx bx-cart-alt' ></i></a>
-            <a href ="#"><i class='bx bx-user' ></i></a>
+        <div class="nav-right"> 
+            <a href="#"><i class='bx bx-search'></i></a>
+            <a href="mycart.php"><i class='bx bx-cart-alt'></i></a>
+            <?php if(isset($_SESSION['loggedin'])) { ?>
+                <a href="profile.php"><i class='bx bx-user'></i></a>
+                <a href="logout.php"><i class='bx bx-log-out'></i></a>
+            <?php } ?>
             <div class="bx bx-menu" id="menu-icon"></div>
         </div>
     </header>
@@ -79,8 +79,8 @@ if (isset($_POST['loginUser'])) {
             <p style="color: red;"><?php echo $error; ?></p>
         <?php } ?>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                <label for="username"><h3> Username: </h3></label>
-                <input type="text" id="username" name="username" required><br><br>
+                <label for="email"><h3> Email: </h3></label>
+                <input type="text" id="email" name="email" required><br><br>
                 
                 <label for="password"><h3>Password:</h3></label>
                 <input type="password" id="password" name="password" required><br><br>
@@ -93,7 +93,7 @@ if (isset($_POST['loginUser'])) {
                 </a>
             </div>
         </form>
-    <br><p>Don't have an account? <a href="register.html">Register here</a>.</p>
+    <br><p>Don't have an account? <a href="register.php">Register here</a>.</p>
     </main>
 
     <footer class="footer">

@@ -271,7 +271,7 @@ include 'components/wishlist_cart.php';
     <!--copyright-->
     <div class="copyright"?>
         <div class="end-text">
-            <p> © 2024, Da BeanChase-brews and concepts</p>
+            <p> © 2024, Da BeanChase-brews and concepts (made by Alex 🤓)</p>
         </div>
     </div>
 
